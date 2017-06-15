@@ -1,2 +1,2 @@
 # -*- codeing:utf-8 -*-
-__author__ = 'Buguin'
+# __author__ = 'Buguin'
