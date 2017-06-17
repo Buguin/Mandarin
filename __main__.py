@@ -3,20 +3,23 @@
 from toolkits.xmltools.xml_tools import *
 
 # 初始化队列
-git_deque = deque()
-svn_deque = deque()
+git_deque = deque(maxlen=20)
+svn_deque = deque(maxlen=20)
 # initial relative path
 targetpath = ""
 sourcepath = ""
 
 if __name__ == '__main__':
-    # TODO read xml file to get the info of CVS
-    configpath = r"D:\Users\buguin\PycharmProjects\Mandarin\scripts\config.xml"
-    configtablepath = r"D:\Users\buguin\PycharmProjects\Mandarin\scripts\configtable.xml"
+    # get deque of repository, include svn and git
+    configpath = os.getcwd() + "\scripts\config.xml"
+    configtablepath = os.getcwd() + "\scripts\configtable.xml"
     git_deque = get_git_deque(configpath)
-    # xmltools.get_git_deque(xmlpath, gitdeque)
-    # xmltools.get_svn_deque(xmlpath, svndeque)
-    # xmltools.get_mandarin_deque(xmlpath, gitdeque)
+    svn_deque = get_svn_deque(configpath)
+    print(len(git_deque))
+    print(len(svn_deque))
+    # while git_deque:
+    #     git_tool = git_deque.popleft()
+    #     print(1)
     # out stack and initial
     # Get configtable.xml
     # repo_git = Repo(r"D:\Users\buguin\GitHub\game-of-life")
