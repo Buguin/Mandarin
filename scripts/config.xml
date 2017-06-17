@@ -1,24 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<sourcecode>
+<config>
+    <!--Used for restore the file which is source code-->
+    <targetpath>
+        <windowspath>D:\Temp\target</windowspath>
+        <linuxpath>usr1/temp/target</linuxpath>
+    </targetpath>
+    <!--Used for restore the file which is original file-->
     <sourcepath>
-        D:\Temp
+        <windowspath>D:\Temp\source</windowspath>
+        <linuxpath>usr1/temp/source</linuxpath>
     </sourcepath>
-    <gits>
-        <username></username>
-        <password></password>
-        <git>
+
+    <!--The repository of git setting-->
+    <gits username="wybuguin@hotmail.com" passwd="12345">
+        <!--The config for git. There can be mutil repository of git-->
+        <git id="1" username="wybuguin@hotmail.com" passwd="12345">
             <!--This config is used for download code form git-->
             <gitpath>
                 https://github.com/Buguin/learngit.git
             </gitpath>
-            <username></username>
-            <password></password>
-            <!--If sourcepath is empty, code will download to the path metioned in sourcecode-->
-            <sourcepath>
-            </sourcepath>
             <!--If foldername is empty, code will download to the folder which name the suffix of gitpath-->
             <foldername>
             </foldername>
         </git>
+        <git id="2" username="wybuguin@hotmail.com" passwd="12345">
+            <gitpath>
+                https://github.com/Buguin/Python35-spider.git
+            </gitpath>
+            <foldername>
+                spider
+            </foldername>
+        </git>
     </gits>
-</sourcecode>
+    <!--The repository of svn setting-->
+    <svns username="wybuguin@hotmail.com" password="12345">
+        <svn username="wybuguin@hotmail.com" password="12345">
+            <!--This config is used for download code form git-->
+            <svnpath>
+                https://github.com/Buguin/learngit.git
+            </svnpath>
+            <!--If foldername is empty, code will download to the folder which name the suffix of gitpath-->
+            <foldername>
+            </foldername>
+        </svn>
+    </svns>
+</config>

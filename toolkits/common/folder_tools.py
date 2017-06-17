@@ -3,7 +3,7 @@
 import os
 
 
-def get_dirsize(dir_path):
+def get_folder_size(dir_path):
     """
     According to the param of dir_path, cacullate the size of folder and return it.
     :param dir_path: The path of folder, like D:\Temp
@@ -15,7 +15,7 @@ def get_dirsize(dir_path):
     return size
 
 
-def get_folderstatus(fodler_path):
+def get_folder_status(fodler_path):
     """
     According to the param of dir_path, get the status of folder and return it.
     :param fodler_path: The path of folder, like D:\Temp
@@ -27,10 +27,10 @@ def get_folderstatus(fodler_path):
     if os.path.exists(fodler_path):
         print("This size of repo is existed")
         if os.path.getsize(fodler_path):
-            print("This size of repo is ", get_dirsize(fodler_path) / 1024 / 1024)
+            print("This size of repo is ", get_folder_size(fodler_path) / 1024 / 1024)
             return 2
         else:
-            print("This size of repo is ", get_dirsize(fodler_path) / 1024 / 1024)
+            print("This size of repo is ", get_folder_size(fodler_path) / 1024 / 1024)
             return 1
             # repo = gittools.Repo.clone_from("https://github.com/Buguin/learngit.git", r"D:\Temp\test")
     else:

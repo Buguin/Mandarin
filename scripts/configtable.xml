@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configtable>
+    <configlist name = "DOPRA">
+        <version>1.2.3</version>
+        <type>CompileTool</type>
+        <model>GPU</model>
+        <iscommercial></iscommercial>
+        <isupdate></isupdate>
+        <compareresult></compareresult>
+        <targetpath>
+            \learngit
+        </targetpath>
+        <sourvepath>
+            the path of vmp
+        </sourvepath>
+        <targetexclude>.git;filename;\learngit\src</targetexclude>
+        <sourveexclude></sourveexclude>
+    </configlist>
+</configtable>
