@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sourcecode>
+    <sourcepath>
+        D:\Temp
+    </sourcepath>
+    <gits>
+        <username></username>
+        <password></password>
+        <git>
+            <!--This config is used for download code form git-->
+            <gitpath>
+                https://github.com/Buguin/learngit.git
+            </gitpath>
+            <username></username>
+            <password></password>
+            <!--If sourcepath is empty, code will download to the path metioned in sourcecode-->
+            <sourcepath>
+            </sourcepath>
+            <!--If foldername is empty, code will download to the folder which name the suffix of gitpath-->
+            <foldername>
+            </foldername>
+        </git>
+    </gits>
+</sourcecode>
