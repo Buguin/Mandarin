@@ -1,16 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<config>
+<config offering="" version="" model="0">
     <!--Used for restore the file which is source code-->
     <targetpath>
         <windowspath>D:\Temp\target</windowspath>
         <linuxpath>usr1/temp/target</linuxpath>
+        <exclude>
+            <type>.gitignore</type>
+            <folder>.git</folder>
+            <file>\</file>
+        </exclude>
     </targetpath>
     <!--Used for restore the file which is original file-->
     <sourcepath>
         <windowspath>D:\Temp\source</windowspath>
         <linuxpath>usr1/temp/source</linuxpath>
+        <exclude>
+            <type>.gitignore</type>
+            <folder>.git</folder>
+            <file></file>
+        </exclude>
     </sourcepath>
-
     <!--The repository of git setting-->
     <gits username="wybuguin@hotmail.com" passwd="12345">
         <!--The config for git. There can be mutil repository of git-->
@@ -34,7 +43,7 @@
     </gits>
     <!--The repository of svn setting-->
     <svns username="wybuguin@hotmail.com" password="12345">
-        <svn username="wybuguin@hotmail.com" password="12345">
+        <svn id="" username="wybuguin@hotmail.com" password="12345">
             <!--This config is used for download code form git-->
             <svnpath>
                 https://github.com/Buguin/learngit.git
@@ -44,4 +53,37 @@
             </foldername>
         </svn>
     </svns>
+    <configlist num="">
+        <config id="" offering="" version="">
+            <type>BIOS</type>
+            <model>GPU</model>
+            <iscommercial></iscommercial>
+            <isupdate>Yes</isupdate>
+            <iscompare>Yes</iscompare>
+            <compareresult>NO</compareresult>
+            <targetpath>
+                \learngit
+            </targetpath>
+            <!--The path of repository-->
+            <sourvepath>
+                \learngit
+            </sourvepath>
+            <!--The path of vmp-->
+            <vmppath>
+
+            </vmppath>
+            <exclude>
+                <targetexclude>
+                    <type>.gitignore</type>
+                    <folder>.git</folder>
+                    <file></file>
+                </targetexclude>
+                <sourveexclude>
+                    <type>.gitignore</type>
+                    <folder>.git</folder>
+                    <file></file>
+                </sourveexclude>
+            </exclude>
+        </config>
+    </configlist>
 </config>

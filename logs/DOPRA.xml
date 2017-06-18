@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configitem name="DOPRA" version="V100R010C00">
+    <!--The property has three kind of type, binary, reada, rar-->
+    <files num="">
+        <file ID="1" type="">
+            <filepath>
+
+            </filepath>
+            <MD5>
+
+            </MD5>
+            <signfile></signfile>
+            <relate num=""></relate>
+        </file>
+    </files>
+</configitem>

@@ -36,7 +36,3 @@ def get_folder_status(fodler_path):
     else:
         print("This size of repo is not existed")
         return 1
-
-
-def get_source_path(source_path, folder_name):
-    return source_path + "\\" + folder_name

@@ -1,5 +1,7 @@
 # -*- codeing:utf-8 -*-
 # __author__ = 'Buguin'
+import time
+
 import git
 from git import Repo
 
@@ -7,7 +9,7 @@ from toolkits.common.folder_tools import *
 
 
 class GitToolClass:
-    def __init__(self, source_path):
+    def __init__(self):
         """
         
         :param source_path: 
@@ -17,7 +19,7 @@ class GitToolClass:
         self.username = ""
         self.passwd = ""
         self.git_tool_status = 0
-        self.git_source_path = source_path
+        self.git_source_path = ""
         self.swicher = ""
 
     def initial(self):
@@ -43,15 +45,19 @@ class GitToolClass:
         return 100
 
     def initialize_2(self):
-        cmd = r"rd /s /q " + self.git_source_path
+        cmd = r"rd /s /q " + self.git_source_path + " & echo 0"
         os.popen(cmd, 'r', 1)
+        # wait delet the file
+        print("wait delet the file")
+        time.sleep(5)
         # os.removedirs(self.git_source_path)
         try:
-            repo = git.Repo.clone_from(self.repo_path, self.git_source_path, branch='master')
+            while not os.path.exists(self.git_source_path):
+                repo = git.Repo.clone_from(self.repo_path, self.git_source_path, branch='master')
+                print("initialize_1", repo.head)
         except Exception as err:
             print(Exception, ":", err)
             return 201
-        print("initialize_1", repo.head)
         return 200
 
     def initialize_3(self):
