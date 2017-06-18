@@ -29,13 +29,13 @@ def get_folder_status(fodler_path):
         print(float(os.path.getsize(fodler_path)))
         if float(os.path.getsize(fodler_path)) < 50:
             print("This size of repo is ", get_folder_size(fodler_path) / 1024 / 1024)
-            return 1
+            return 2
         else:
             print("This size of repo is ", get_folder_size(fodler_path) / 1024 / 1024)
-            return 2
+            return 3
     else:
         print("This size of repo is not existed")
-        return 0
+        return 1
 
 
 def get_source_path(source_path, folder_name):

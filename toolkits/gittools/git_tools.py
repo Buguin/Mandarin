@@ -32,21 +32,33 @@ class GitToolClass:
             # print(self.swicher)
             return initialize()
 
-    def initialize_0(self):
-        # os.makedirs(self.git_source_path)
-        repo = git.Repo.clone_from(self.repo_path, self.git_source_path, branch='master')
-        print("initialize_0", repo.head)
-        return 0
-
     def initialize_1(self):
+        # os.makedirs(self.git_source_path)
+        try:
+            repo = git.Repo.clone_from(self.repo_path, self.git_source_path, branch='master')
+        except Exception as err:
+            print(Exception, ":", err)
+            return 101
+        print("initialize_1", repo.head)
+        return 100
+
+    def initialize_2(self):
         cmd = r"rd /s /q " + self.git_source_path
         os.popen(cmd, 'r', 1)
         # os.removedirs(self.git_source_path)
-        repo = git.Repo.clone_from(self.repo_path, self.git_source_path, branch='master')
+        try:
+            repo = git.Repo.clone_from(self.repo_path, self.git_source_path, branch='master')
+        except Exception as err:
+            print(Exception, ":", err)
+            return 201
         print("initialize_1", repo.head)
-        return 1
+        return 200
 
-    def initialize_2(self):
+    def initialize_3(self):
         repo = Repo(self.git_source_path)
-        print(repo.description)
-        return 2
+        try:
+            repo.remote().pull()
+        except Exception as err:
+            print(Exception, ":", err)
+            return 301
+        return 300
