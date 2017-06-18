@@ -25,10 +25,10 @@
         </git>
         <git id="2" username="wybuguin@hotmail.com" passwd="12345">
             <gitpath>
-                https://github.com/Buguin/Python35-spider.git
+                https://github.com/Buguin/game-of-life.git
             </gitpath>
             <foldername>
-                spider
+                game
             </foldername>
         </git>
     </gits>

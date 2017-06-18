@@ -26,13 +26,17 @@ def get_folder_status(fodler_path):
     """
     if os.path.exists(fodler_path):
         print("This size of repo is existed")
-        if os.path.getsize(fodler_path):
-            print("This size of repo is ", get_folder_size(fodler_path) / 1024 / 1024)
-            return 2
-        else:
+        print(float(os.path.getsize(fodler_path)))
+        if float(os.path.getsize(fodler_path)) < 50:
             print("This size of repo is ", get_folder_size(fodler_path) / 1024 / 1024)
             return 1
-            # repo = gittools.Repo.clone_from("https://github.com/Buguin/learngit.git", r"D:\Temp\test")
+        else:
+            print("This size of repo is ", get_folder_size(fodler_path) / 1024 / 1024)
+            return 2
     else:
         print("This size of repo is not existed")
         return 0
+
+
+def get_source_path(source_path, folder_name):
+    return source_path + "\\" + folder_name
