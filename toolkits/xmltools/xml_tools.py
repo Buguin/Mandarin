@@ -110,7 +110,6 @@ def get_svn_deque(xmlpath):
     return svn_deque
 
 
-# TODO
 def get_md5_deque(xmlpath):
     compare_deque = deque()
     dom_tree = xml.dom.minidom.parse(xmlpath)
@@ -130,6 +129,7 @@ def get_md5_deque(xmlpath):
         config_tool.target_abspath = com_targetpath
         config_tool.source_abspath = com_sourcepath
         config_tool.id = config_tag.getAttribute("id")
+        config_tool.name = config_tag.getAttribute("name")
         config_tool.offering = config_tag.getAttribute("offering")
         config_tool.version = config_tag.getAttribute("version")
         config_tool.type = get_childtag_data(config_tag, "type")

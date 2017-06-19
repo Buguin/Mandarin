@@ -30,17 +30,11 @@ if __name__ == '__main__':
     """
     # initial information of config
     compare_deque = get_md5_deque(configpath)
-    # while compare_deque:
-    #     compare_tool = compare_deque.popleft()
-    #     compare_deque.append(git_tool)
-    #     print(git_tool)
-    #     git_tool.initial()
-
-    # Get configtable.xml
-    # gitReop = GitTool(file_path)
-    # gitReop.swicher = get_folderstatus(file_path)
-    # print("status", gitReop.swicher)
-    # print(gitReop.initial())
-    # print(gitReop.git_source_path)
-    # gitReop.initial()
-    # TODO compare and export the compare result
+    while compare_deque:
+        compare_tool = compare_deque.popleft()
+        print(compare_tool.offering + compare_tool.version)
+        source_xmlpath = compare_tool.source_initial()
+        target_xmlpath = compare_tool.target_initial()
+        compare_tool.compare_diff(source_xmlpath, target_xmlpath)
+        print(compare_tool.compareresult)
+        # TODO export the compare result

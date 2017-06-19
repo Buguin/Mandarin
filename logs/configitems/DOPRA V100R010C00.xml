@@ -2,15 +2,13 @@
 <configitem name="DOPRA" version="V100R010C00">
     <!--The property has three kind of type, binary, reada, rar-->
     <files num="">
-        <file ID="1" type="">
+        <file ID="1" type="" parent="" child="" brother="" MD5="">
             <filepath>
-
+                D:\Temp\target\configtable.zip>configtable.xml
             </filepath>
-            <MD5>
+            <signfile>
 
-            </MD5>
-            <signfile></signfile>
-            <relate num=""></relate>
+            </signfile>
         </file>
     </files>
 </configitem>

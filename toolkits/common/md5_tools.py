@@ -7,6 +7,7 @@ class ConfigClass:
         self.target_abspath = ""
         self.source_abspath = ""
         self.id = ""
+        self.name = ""
         self.offering = ""
         self.version = ""
         self.type = ""
@@ -19,6 +20,21 @@ class ConfigClass:
         self.sourveexcludeC = ""
 
     def initial(self):
+        print()
+
+    def source_initial(self):
+        self.initial()
+        source_xmlpath = ""
+        print()
+        return source_xmlpath
+
+    def target_initial(self):
+        self.initial()
+        target_xmlpath = ""
+        print()
+        return target_xmlpath
+
+    def compare_diff(self, source_xmlpath, target_xmlpath):
         print()
 
 

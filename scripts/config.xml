@@ -1,13 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <config offering="" version="" model="0">
+    <urlpath>
+        <viewpath>xxxx</viewpath>
+        <getconfig>xxxx</getconfig>
+        <updateconfig>xxxx</updateconfig>
+    </urlpath>
     <!--Used for restore the file which is source code-->
     <targetpath>
         <windowspath>D:\Temp\target</windowspath>
         <linuxpath>usr1/temp/target</linuxpath>
         <exclude>
-            <type>.gitignore</type>
+            <type>gitignore</type>
             <folder>.git</folder>
-            <file>\</file>
+            <file>file</file>
         </exclude>
     </targetpath>
     <!--Used for restore the file which is original file-->
@@ -15,7 +20,7 @@
         <windowspath>D:\Temp\source</windowspath>
         <linuxpath>usr1/temp/source</linuxpath>
         <exclude>
-            <type>.gitignore</type>
+            <type>gitignore</type>
             <folder>.git</folder>
             <file></file>
         </exclude>
@@ -54,7 +59,7 @@
         </svn>
     </svns>
     <configlist>
-        <config id="1" offering="" version="">
+        <config id="1" name="" offering="" version="">
             <type>BIOS</type>
             <models>
                 <modle id="1">GPU</modle>
@@ -77,18 +82,18 @@
             </vmppath>
             <exclude>
                 <targetexclude>
-                    <type>.gitignore</type>
+                    <type>gitignore</type>
                     <folder>.git</folder>
                     <file></file>
                 </targetexclude>
                 <sourveexclude>
-                    <type>.gitignore</type>
+                    <type>gitignore</type>
                     <folder>.git</folder>
                     <file></file>
                 </sourveexclude>
             </exclude>
         </config>
-        <config id="2" offering="" version="">
+        <config id="2" name="" offering="" version="">
             <type>CompileTool</type>
             <models>
                 <modle id="1">GPU</modle>
@@ -111,12 +116,12 @@
             </vmppath>
             <exclude>
                 <targetexclude>
-                    <type>.gitignore</type>
+                    <type>gitignore</type>
                     <folder>.git</folder>
                     <file></file>
                 </targetexclude>
                 <sourveexclude>
-                    <type>.gitignore</type>
+                    <type>gitignore</type>
                     <folder>.git</folder>
                     <file></file>
                 </sourveexclude>
