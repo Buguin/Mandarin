@@ -12,7 +12,6 @@ class GitToolClass:
     def __init__(self):
         """
         
-        :param source_path: 
         """
         self.repo_path = ""
         self.folder_name = ""

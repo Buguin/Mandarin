@@ -3,7 +3,6 @@
 import os
 import xml.dom.minidom
 from collections import deque
-from xml.dom.minidom import parse
 
 from toolkits.common.md5_tools import ConfigClass
 from toolkits.common.md5_tools import ExcludeToolClass
@@ -46,8 +45,11 @@ def get_childtag_data(parent_tag, child_tag_name):
     :return: the content in child tag
     """
     child_tag = get_fist_tag(parent_tag, child_tag_name)
-    print(child_tag.firstChild.data.strip())
-    return child_tag.firstChild.data.strip()
+    if child_tag.firstChild is None:
+        return ""
+    else:
+        print(child_tag.firstChild.data.strip())
+        return child_tag.firstChild.data.strip()
 
 
 def get_fist_tag(parent_tag, child_tag_name):
@@ -108,6 +110,7 @@ def get_svn_deque(xmlpath):
     return svn_deque
 
 
+# TODO
 def get_md5_deque(xmlpath):
     compare_deque = deque()
     dom_tree = xml.dom.minidom.parse(xmlpath)
@@ -117,7 +120,9 @@ def get_md5_deque(xmlpath):
     targetpath_tag = get_fist_tag(collection, "targetpath")
     sourcepath_tag = get_fist_tag(collection, "sourcepath")
     com_targetexlude_tag = get_fist_tag(targetpath_tag, "exclude")
+    com_targetexlude_class = get_exclude_class(com_targetexlude_tag)
     com_sourceexlude_tag = get_fist_tag(sourcepath_tag, "exclude")
+    com_sourceexlude_class = get_exclude_class(com_sourceexlude_tag)
     configlist_tag = get_fist_tag(collection, "configlist")
     config_tags = configlist_tag.getElementsByTagName("config")
     for config_tag in config_tags:
@@ -128,32 +133,46 @@ def get_md5_deque(xmlpath):
         config_tool.offering = config_tag.getAttribute("offering")
         config_tool.version = config_tag.getAttribute("version")
         config_tool.type = get_childtag_data(config_tag, "type")
-        config_tool.model = get_childtag_data(config_tag, "model")
+        config_models = config_tag.getElementsByTagName("modle")
+        print(len(config_models))
+        for config_model in config_models:
+            config_tool.model |= {config_model.firstChild.data.strip()}
+            print(config_tool.model)
+        print(config_tool.model)
         config_tool.iscommercial = get_childtag_data(config_tag, "iscommercial")
         config_tool.isupdate = get_childtag_data(config_tag, "isupdate")
         config_tool.iscompare = get_childtag_data(config_tag, "iscompare")
         config_tool.compareresult = get_childtag_data(config_tag, "compareresult")
-        targettemp = get_fist_tag(config_tag, "targetexclude")
-        sourcetemp = get_fist_tag(config_tag, "sourveexclude")
-        config_tool.targetexcludeC = exclude_connect(targettemp, com_targetexlude_tag)
-        config_tool.sourveexcludeC = exclude_connect(sourcetemp, com_sourceexlude_tag)
+        config_target_tag = get_fist_tag(config_tag, "targetexclude")
+        config_source_tag = get_fist_tag(config_tag, "sourveexclude")
+        com_target_class = get_exclude_class(config_target_tag)
+        com_source_class = get_exclude_class(config_source_tag)
+        config_tool.targetexcludeC = exclude_class_connect(com_target_class, com_targetexlude_class)
+        config_tool.sourveexcludeC = exclude_class_connect(com_source_class, com_sourceexlude_class)
         compare_deque.append(config_tool)
         print(config_tool.id)
-    print()
+    return compare_deque
 
 
 def get_exclude_class(exclude_tag):
     exclude_class = ExcludeToolClass()
     strtype = get_childtag_data(exclude_tag, "type")
-    exclude_class.type = strtype.split(";")
+    exclude_class.type = get_exclude_set(strtype, ';')
     strfolder = get_childtag_data(exclude_tag, "folder")
-    exclude_class.folder = strfolder.split(";")
+    exclude_class.folder = get_exclude_set(strfolder, ';')
     strfile = get_childtag_data(exclude_tag, "file")
-    exclude_class.file = strfile.split(";")
+    exclude_class.file = get_exclude_set(strfile, ';')
     return exclude_class
 
 
-def exclude_connect(first_tag, second_tag):
-    exclude_class = ""
-    print()
+def get_exclude_set(exclude_str, split_char):
+    exclude_set = set()
+    etypes = exclude_str.split(split_char)
+    for etype in etypes:
+        exclude_set |= {etype}
+    return exclude_set
+
+
+def exclude_class_connect(first_exclude_class, second_exclude_class):
+    exclude_class = first_exclude_class | second_exclude_class
     return exclude_class

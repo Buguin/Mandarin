@@ -10,7 +10,7 @@ class ConfigClass:
         self.offering = ""
         self.version = ""
         self.type = ""
-        self.model = ""
+        self.model = set()
         self.compareresult = ""
         self.iscommercial = ""
         self.isupdate = ""
@@ -21,14 +21,22 @@ class ConfigClass:
     def initial(self):
         print()
 
-    def get_md5_deque(self, xmlpath):
-        print()
-
 
 class ExcludeToolClass:
     def __init__(self):
-        self.type = ""
+        """ExcludeToolClass is for initial the exclude file, folder and type in the target and source folder.
+        """
+        self.type = set()
         # restore the abs path of folder
-        self.folder = ""
+        self.folder = set()
         # restore the abs path of file
-        self.file = ""
+        self.file = set()
+
+    def __or__(self, other):
+        self.type |= other.type
+        print(self.type)
+        # restore the abs path of folder
+        self.folder |= other.folder
+        # restore the abs path of file
+        self.file |= other.file
+        return self

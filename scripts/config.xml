@@ -53,10 +53,47 @@
             </foldername>
         </svn>
     </svns>
-    <configlist num="">
-        <config id="" offering="" version="">
+    <configlist>
+        <config id="1" offering="" version="">
             <type>BIOS</type>
-            <model>GPU</model>
+            <models>
+                <modle id="1">GPU</modle>
+                <modle id="2">ASU</modle>
+            </models>
+            <iscommercial></iscommercial>
+            <isupdate>Yes</isupdate>
+            <iscompare>Yes</iscompare>
+            <compareresult>NO</compareresult>
+            <targetpath>
+                \learngit
+            </targetpath>
+            <!--The path of repository-->
+            <sourvepath>
+                \learngit
+            </sourvepath>
+            <!--The path of vmp-->
+            <vmppath>
+
+            </vmppath>
+            <exclude>
+                <targetexclude>
+                    <type>.gitignore</type>
+                    <folder>.git</folder>
+                    <file></file>
+                </targetexclude>
+                <sourveexclude>
+                    <type>.gitignore</type>
+                    <folder>.git</folder>
+                    <file></file>
+                </sourveexclude>
+            </exclude>
+        </config>
+        <config id="2" offering="" version="">
+            <type>CompileTool</type>
+            <models>
+                <modle id="1">GPU</modle>
+                <modle id="2">ASU</modle>
+            </models>
             <iscommercial></iscommercial>
             <isupdate>Yes</isupdate>
             <iscompare>Yes</iscompare>

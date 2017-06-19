@@ -1,7 +1,7 @@
 # -*- codeing:utf-8 -*-
 # __author__ = 'Buguin'
-from toolkits.gittools.git_tools import *
 from toolkits.xmltools.xml_tools import *
+
 
 # The deque for download sourcecode
 git_deque = deque(maxlen=20)
@@ -17,22 +17,25 @@ if __name__ == '__main__':
     configpath = os.getcwd() + "\scripts\config.xml"
     # configtablepath = os.getcwd() + "\scripts\configtable.xml"
     # initial information of vcs
+    """
     git_deque = get_git_deque(configpath)
     svn_deque = get_svn_deque(configpath)
+    """
     # get code throgh git and svn tool
+    """
     while git_deque:
         git_tool = git_deque.popleft()
         print(git_tool)
         git_tool.initial()
-        # initial information of config
-        # compare_deque = get_md5_deque(configpath)
-        # while compare_deque:
-        #
-        #     compare_tool = compare_deque.popleft()
-        #
-        #     compare_deque.append(git_tool)
-        #     print(git_tool)
-        #     git_tool.initial()
+    """
+    # initial information of config
+    compare_deque = get_md5_deque(configpath)
+    # while compare_deque:
+    #     compare_tool = compare_deque.popleft()
+    #     compare_deque.append(git_tool)
+    #     print(git_tool)
+    #     git_tool.initial()
+
     # Get configtable.xml
     # gitReop = GitTool(file_path)
     # gitReop.swicher = get_folderstatus(file_path)
