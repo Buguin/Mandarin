@@ -4,8 +4,8 @@ import os
 import xml.dom.minidom
 from collections import deque
 
-from toolkits.common.md5_tools import ConfigClass
-from toolkits.common.md5_tools import ExcludeToolClass
+from toolkits.common.config_tools import ConfigClass
+from toolkits.common.config_tools import ExcludeToolClass
 from toolkits.gittools.git_tools import GitToolClass
 
 
@@ -110,7 +110,7 @@ def get_svn_deque(xmlpath):
     return svn_deque
 
 
-def get_md5_deque(xmlpath):
+def get_config_deque(xmlpath):
     compare_deque = deque()
     dom_tree = xml.dom.minidom.parse(xmlpath)
     collection = dom_tree.documentElement
@@ -157,11 +157,11 @@ def get_md5_deque(xmlpath):
 def get_exclude_class(exclude_tag):
     exclude_class = ExcludeToolClass()
     strtype = get_childtag_data(exclude_tag, "type")
-    exclude_class.type = get_exclude_set(strtype, ';')
+    exclude_class.types = get_exclude_set(strtype, ';')
     strfolder = get_childtag_data(exclude_tag, "folder")
-    exclude_class.folder = get_exclude_set(strfolder, ';')
+    exclude_class.folders = get_exclude_set(strfolder, ';')
     strfile = get_childtag_data(exclude_tag, "file")
-    exclude_class.file = get_exclude_set(strfile, ';')
+    exclude_class.files = get_exclude_set(strfile, ';')
     return exclude_class
 
 
@@ -176,3 +176,6 @@ def get_exclude_set(exclude_str, split_char):
 def exclude_class_connect(first_exclude_class, second_exclude_class):
     exclude_class = first_exclude_class | second_exclude_class
     return exclude_class
+
+# def get_source_infor():
+#     print()

@@ -59,13 +59,13 @@
         </svn>
     </svns>
     <configlist>
-        <config id="1" name="" offering="" version="">
+        <config id="1" name="RTOS-GIU" offering="RTOS" version="V100R012C00">
             <type>BIOS</type>
             <models>
                 <modle id="1">GPU</modle>
                 <modle id="2">ASU</modle>
             </models>
-            <iscommercial></iscommercial>
+            <iscommercial>Yes</iscommercial>
             <isupdate>Yes</isupdate>
             <iscompare>Yes</iscompare>
             <compareresult>NO</compareresult>
@@ -93,7 +93,7 @@
                 </sourveexclude>
             </exclude>
         </config>
-        <config id="2" name="" offering="" version="">
+        <config id="2" name="DOPRA-ASU" offering="DOPRA" version="V100R019C00">
             <type>CompileTool</type>
             <models>
                 <modle id="1">GPU</modle>
