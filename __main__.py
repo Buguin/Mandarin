@@ -2,6 +2,8 @@
 # __author__ = 'Buguin'
 from toolkits.xmltools.read_xml_tools import *
 
+# import xml.etree.ElementTree as ET
+
 
 # The deque for download sourcecode
 git_deque = deque(maxlen=20)
@@ -32,9 +34,9 @@ if __name__ == '__main__':
     compare_deque = get_config_deque(configpath)
     while compare_deque:
         compare_tool = compare_deque.popleft()
-        print(compare_tool.offering + compare_tool.version)
+        print(compare_tool.offering + " " + compare_tool.version)
         source_xmlpath = compare_tool.source_initial()
-        target_xmlpath = compare_tool.target_initial()
-        compare_tool.compare_diff(source_xmlpath, target_xmlpath)
+        # target_xmlpath = compare_tool.target_initial()
+        # compare_tool.compare_diff(source_xmlpath, target_xmlpath)
         print(compare_tool.compareresult)
         # TODO export the compare result
