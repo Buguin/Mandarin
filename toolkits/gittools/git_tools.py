@@ -48,6 +48,7 @@ class GitToolClass:
         os.popen(cmd, 'r', 1)
         # wait delet the file
         print("wait delet the file")
+        # fixme if the folder delete error, the repository would not download successfull.
         time.sleep(5)
         # os.removedirs(self.git_source_path)
         try:

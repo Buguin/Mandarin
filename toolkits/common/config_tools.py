@@ -25,12 +25,12 @@ class ConfigClass:
         print()
 
     def source_initial(self):
-        self.sourveexcludeC = file_name_connect(self.target_abspath, self.sourveexcludeC)
+        self.sourveexcludeC = file_name_connect(self.source_abspath, self.sourveexcludeC)
         source_xmlpath = get_source_infor(self)
-        print()
         return source_xmlpath
 
     def target_initial(self):
+        self.initial(self)
         self.targetexcludeC = file_name_connect(self.target_abspath, self.targetexcludeC)
         target_xmlpath = ""
         print()

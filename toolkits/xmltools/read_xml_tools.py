@@ -68,18 +68,27 @@ def get_git_deque(xmlpath):
     git_deque = deque()
     dom_tree = xml.dom.minidom.parse(xmlpath)
     collection = dom_tree.documentElement
-    gits = get_fist_tag(collection, "gits")
-    com_username = gits.getAttribute("username")
-    com_passwd = gits.getAttribute("passwd")
+    targetpath_tag = get_fist_tag(collection, "targetpath")
+    gits_tag = get_fist_tag(targetpath_tag, "gits")
+    com_username = gits_tag.getAttribute("username")
+    com_passwd = gits_tag.getAttribute("passwd")
     print(com_username, com_passwd)
-    git_tags = gits.getElementsByTagName("git")
+    git_tags = gits_tag.getElementsByTagName("git")
     print(get_targetpath(collection))
     for git_tag in git_tags:
         git_tool = GitToolClass()
         git_tool.git_source_path = get_targetpath(collection)
         git_tool.repo_path = get_childtag_data(git_tag, "gitpath")
-        git_tool.username = git_tag.getAttribute("username")
-        git_tool.passwd = git_tag.getAttribute("passwd")
+        if git_tag.getAttribute("username") == "":
+            git_tool.username = com_username
+        else:
+            git_tool.username = git_tag.getAttribute("username")
+        if git_tag.getAttribute("passwd") == "":
+            git_tool.username = com_passwd
+        else:
+            git_tool.username = git_tag.getAttribute("passwd")
+        # git_tool.username = git_tag.getAttribute("username")
+        # git_tool.passwd = git_tag.getAttribute("passwd")
         print(get_childtag_data(git_tag, "foldername"))
         if get_childtag_data(git_tag, "foldername"):
             git_tool.folder_name = get_childtag_data(git_tag, "foldername")
@@ -138,7 +147,7 @@ def get_config_deque(xmlpath):
         for config_model in config_models:
             config_tool.model |= {config_model.firstChild.data.strip()}
             print(config_tool.model)
-        print(config_tool.model)
+        # print(config_tool.model)
         config_tool.iscommercial = get_childtag_data(config_tag, "iscommercial")
         config_tool.isupdate = get_childtag_data(config_tag, "isupdate")
         config_tool.iscompare = get_childtag_data(config_tag, "iscompare")
@@ -149,6 +158,7 @@ def get_config_deque(xmlpath):
         com_source_class = get_exclude_class(config_source_tag)
         config_tool.targetexcludeC = exclude_class_connect(com_target_class, com_targetexlude_class)
         config_tool.sourveexcludeC = exclude_class_connect(com_source_class, com_sourceexlude_class)
+
         compare_deque.append(config_tool)
         print(config_tool.id)
     return compare_deque

@@ -14,6 +14,41 @@
             <folder>.git</folder>
             <file>file</file>
         </exclude>
+        <repositories>
+            <!--The repository of git setting-->
+            <gits username="wybuguin@hotmail.com" passwd="12345">
+                <!--The config for git. There can be mutil repository of git-->
+                <git id="1" username="wybuguin@hotmail.com" passwd="12345">
+                    <!--This config is used for download code form git-->
+                    <gitpath>
+                        https://github.com/Buguin/learngit.git
+                    </gitpath>
+                    <!--If foldername is empty, code will download to the folder which name the suffix of gitpath-->
+                    <foldername>
+                    </foldername>
+                </git>
+                <git id="2" username="" passwd="">
+                    <gitpath>
+                        https://github.com/Buguin/game-of-life.git
+                    </gitpath>
+                    <foldername>
+                        game
+                    </foldername>
+                </git>
+            </gits>
+            <!--The repository of svn setting-->
+            <svns username="wybuguin@hotmail.com" password="12345">
+                <svn id="" username="wybuguin@hotmail.com" password="12345">
+                    <!--This config is used for download code form git-->
+                    <svnpath>
+                        https://github.com/Buguin/learngit.git
+                    </svnpath>
+                    <!--If foldername is empty, code will download to the folder which name the suffix of gitpath-->
+                    <foldername>
+                    </foldername>
+                </svn>
+            </svns>
+        </repositories>
     </targetpath>
     <!--Used for restore the file which is original file-->
     <sourcepath>
@@ -24,40 +59,42 @@
             <folder>.git</folder>
             <file></file>
         </exclude>
+        <repositories>
+            <!--The repository of git setting-->
+            <gits username="wybuguin@hotmail.com" passwd="12345">
+                <!--The config for git. There can be mutil repository of git-->
+                <git id="1" username="wybuguin@hotmail.com" passwd="12345">
+                    <!--This config is used for download code form git-->
+                    <gitpath>
+                        https://github.com/Buguin/learngit.git
+                    </gitpath>
+                    <!--If foldername is empty, code will download to the folder which name the suffix of gitpath-->
+                    <foldername>
+                    </foldername>
+                </git>
+                <git id="2" username="wybuguin@hotmail.com" passwd="12345">
+                    <gitpath>
+                        https://github.com/Buguin/game-of-life.git
+                    </gitpath>
+                    <foldername>
+                        game
+                    </foldername>
+                </git>
+            </gits>
+            <!--The repository of svn setting-->
+            <svns username="wybuguin@hotmail.com" password="12345">
+                <svn id="" username="wybuguin@hotmail.com" password="12345">
+                    <!--This config is used for download code form git-->
+                    <svnpath>
+                        https://github.com/Buguin/learngit.git
+                    </svnpath>
+                    <!--If foldername is empty, code will download to the folder which name the suffix of gitpath-->
+                    <foldername>
+                    </foldername>
+                </svn>
+            </svns>
+        </repositories>
     </sourcepath>
-    <!--The repository of git setting-->
-    <gits username="wybuguin@hotmail.com" passwd="12345">
-        <!--The config for git. There can be mutil repository of git-->
-        <git id="1" username="wybuguin@hotmail.com" passwd="12345">
-            <!--This config is used for download code form git-->
-            <gitpath>
-                https://github.com/Buguin/learngit.git
-            </gitpath>
-            <!--If foldername is empty, code will download to the folder which name the suffix of gitpath-->
-            <foldername>
-            </foldername>
-        </git>
-        <git id="2" username="wybuguin@hotmail.com" passwd="12345">
-            <gitpath>
-                https://github.com/Buguin/game-of-life.git
-            </gitpath>
-            <foldername>
-                game
-            </foldername>
-        </git>
-    </gits>
-    <!--The repository of svn setting-->
-    <svns username="wybuguin@hotmail.com" password="12345">
-        <svn id="" username="wybuguin@hotmail.com" password="12345">
-            <!--This config is used for download code form git-->
-            <svnpath>
-                https://github.com/Buguin/learngit.git
-            </svnpath>
-            <!--If foldername is empty, code will download to the folder which name the suffix of gitpath-->
-            <foldername>
-            </foldername>
-        </svn>
-    </svns>
     <configlist>
         <config id="1" name="RTOS-GIU" offering="RTOS" version="V100R012C00">
             <type>BIOS</type>
@@ -70,11 +107,11 @@
             <iscompare>Yes</iscompare>
             <compareresult>NO</compareresult>
             <targetpath>
-                \learngit
+                \game
             </targetpath>
             <!--The path of repository-->
             <sourvepath>
-                \learngit
+                \game-life
             </sourvepath>
             <!--The path of vmp-->
             <vmppath>
@@ -99,7 +136,7 @@
                 <modle id="1">GPU</modle>
                 <modle id="2">ASU</modle>
             </models>
-            <iscommercial></iscommercial>
+            <iscommercial>Yes</iscommercial>
             <isupdate>Yes</isupdate>
             <iscompare>Yes</iscompare>
             <compareresult>NO</compareresult>
@@ -108,7 +145,7 @@
             </targetpath>
             <!--The path of repository-->
             <sourvepath>
-                \learngit
+                \visp
             </sourvepath>
             <!--The path of vmp-->
             <vmppath>
