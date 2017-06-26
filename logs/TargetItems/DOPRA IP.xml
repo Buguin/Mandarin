@@ -1,9 +1,12 @@
 <?xml version='1.0' encoding='UTF-8'?>
 <targetitem>
     <files num="1522">
-        <file ID="1" brother="" child="" md5="MMMMMMMMMMMMMMMMM" parent="" type="">D:\Temp\source\game\.gitignore</file>
+        <file ID="1" brother="" child="" md5="MMMMMMMMMMMMMMMMM" parent="" type="" config="">
+            D:\Temp\source\game\.gitignore
+        </file>
         <file ID="2" brother="" child="" md5="MMMMMMMMMMMMMMMMM" parent="" type="">
-            D:\Temp\source\game\infinitest.filters
+            <path>D:\Temp\source\game\infinitest.filters</path>
+            <config offering="" version="" id=""/>
         </file>
         <file ID="3" brother="" child="" md5="MMMMMMMMMMMMMMMMM" parent="" type="">D:\Temp\source\game\pom.xml</file>
         <file ID="4" brother="" child="" md5="MMMMMMMMMMMMMMMMM" parent="" type="">D:\Temp\source\game\README.markdown

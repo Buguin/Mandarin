@@ -1,7 +1,6 @@
 # -*- codeing:utf-8 -*-
 # __author__ = 'Buguin'
-from toolkits.common.str_tools import file_name_connect
-from toolkits.xmltools.write_xml_tools import get_source_infor
+from toolkits.xmltools.write_xml_tools import get_source_infor, get_tatget_infor, get_compare_result
 
 
 class ConfigClass:
@@ -21,22 +20,16 @@ class ConfigClass:
         self.targetexcludeC = ""
         self.sourveexcludeC = ""
 
-    def initial(self):
-        print()
-
     def source_initial(self):
-        self.sourveexcludeC = file_name_connect(self.source_abspath, self.sourveexcludeC)
         source_xmlpath = get_source_infor(self)
         return source_xmlpath
 
     def target_initial(self):
-        self.initial(self)
-        self.targetexcludeC = file_name_connect(self.target_abspath, self.targetexcludeC)
-        target_xmlpath = ""
-        print()
+        target_xmlpath = get_tatget_infor(self)
         return target_xmlpath
 
     def compare_diff(self, source_xmlpath, target_xmlpath):
+        self.compareresult = get_compare_result(source_xmlpath, target_xmlpath)
         print()
 
 
@@ -57,4 +50,9 @@ class ExcludeToolClass:
         self.folders |= other.folders
         # restore the abs path of file
         self.files |= other.files
+        return self
+
+    # TODO connect path of file and folder through file_path
+    def initial(self, file_path):
+        print()
         return self

@@ -31,5 +31,5 @@ class Control:
             print(compare_tool.offering + " " + compare_tool.version)
             source_xmlpath = compare_tool.source_initial()
             target_xmlpath = compare_tool.target_initial()
-            # compare_tool.compare_diff(source_xmlpath, target_xmlpath)
+            compare_tool.compare_diff(source_xmlpath, target_xmlpath)
             print(compare_tool.compareresult)

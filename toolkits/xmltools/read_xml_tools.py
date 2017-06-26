@@ -135,8 +135,10 @@ def get_config_deque(xmlpath):
     config_tags = configlist_tag.getElementsByTagName("config")
     for config_tag in config_tags:
         config_tool = ConfigClass()
-        config_tool.target_abspath = com_targetpath
-        config_tool.source_abspath = com_sourcepath
+        targetpath = get_childtag_data(config_tag, "targetpath")
+        sourvepath = get_childtag_data(config_tag, "sourvepath")
+        config_tool.target_abspath = path_connect(com_targetpath, targetpath)
+        config_tool.source_abspath = path_connect(com_sourcepath, sourvepath)
         config_tool.id = config_tag.getAttribute("id")
         config_tool.name = config_tag.getAttribute("name")
         config_tool.offering = config_tag.getAttribute("offering")
@@ -158,7 +160,8 @@ def get_config_deque(xmlpath):
         com_source_class = get_exclude_class(config_source_tag)
         config_tool.targetexcludeC = exclude_class_connect(com_target_class, com_targetexlude_class)
         config_tool.sourveexcludeC = exclude_class_connect(com_source_class, com_sourceexlude_class)
-
+        config_tool.targetexcludeC = config_tool.targetexcludeC.initial(config_tool.target_abspath)
+        config_tool.sourveexcludeC = config_tool.sourveexcludeC.initial(config_tool.source_abspath)
         compare_deque.append(config_tool)
         print(config_tool.id)
     return compare_deque
@@ -187,5 +190,14 @@ def exclude_class_connect(first_exclude_class, second_exclude_class):
     exclude_class = first_exclude_class | second_exclude_class
     return exclude_class
 
-# def get_source_infor():
-#     print()
+
+def exclude_initial(exclude_class):
+    return exclude_class
+
+
+def path_connect(first_path, second_path):
+    osname = os.name
+    if osname == "nt":
+        return first_path + "" + second_path
+    elif osname == "posix":
+        return first_path + "" + second_path
