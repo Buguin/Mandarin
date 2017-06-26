@@ -19,14 +19,14 @@ def get_source_infor(compare_tool):
     for parent, dir_names, file_names in os.walk(walk_file_path):
         for file_name in file_names:
             file_path = os.path.join(parent, file_name)
+            print("parent is:" + parent)
+            print("filename is:" + file_name)
+            print("the full name of the file is:" + file_path)
             filedict = {'ID': str(file_num), 'md5': "", 'brother': '', 'child': '', 'parent': '', 'type': ''}
             filedict.update({'md5': get_md5(file_path)})
             file = et.SubElement(files, 'file', filedict)
             file.text = file_path
             file_num += 1
-            print("parent is:" + parent)
-            print("filename is:" + file_name)
-            print("the full name of the file is:" + file_path)
     files.set("num", str(file_num))
     tree = et.ElementTree(root)
     tree.write(source_xmlpath, encoding="utf-8", xml_declaration="utf-8", pretty_print=True)
