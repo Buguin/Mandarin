@@ -1,12 +1,12 @@
 # -*- codeing:utf-8 -*-
 # __author__ = 'Buguin'
-import os
 import xml.dom.minidom
 from collections import deque
 
 from toolkits.common.config_tools import ConfigClass
 from toolkits.common.config_tools import ExcludeToolClass
 from toolkits.gittools.git_tools import GitToolClass
+from toolkits.xmltools.comm_xml_tools import *
 
 
 def get_targetpath(collection):
@@ -35,33 +35,6 @@ def get_sourcepath(collection):
         return get_childtag_data(sourcepath_tag, "windowspath")
     elif osname == "posix":
         return get_childtag_data(sourcepath_tag, "linuxpath")
-
-
-def get_childtag_data(parent_tag, child_tag_name):
-    """
-    Get the content of the child tag
-    :param parent_tag: the parent of tag
-    :param child_tag_name: the name of child
-    :return: the content in child tag
-    """
-    child_tag = get_fist_tag(parent_tag, child_tag_name)
-    if child_tag.firstChild is None:
-        return ""
-    else:
-        print(child_tag.firstChild.data.strip())
-        return child_tag.firstChild.data.strip()
-
-
-def get_fist_tag(parent_tag, child_tag_name):
-    """
-    According to the name of child tag name, find the first tag of child
-    :param parent_tag: the paten tag
-    :param child_tag_name: the name of child tag
-    :return: first tag of child
-    """
-    child_tags = parent_tag.getElementsByTagName(child_tag_name)
-    print(child_tags[0])
-    return child_tags[0]
 
 
 def get_git_deque(xmlpath):
@@ -193,11 +166,3 @@ def exclude_class_connect(first_exclude_class, second_exclude_class):
 
 def exclude_initial(exclude_class):
     return exclude_class
-
-
-def path_connect(first_path, second_path):
-    osname = os.name
-    if osname == "nt":
-        return first_path + "" + second_path
-    elif osname == "posix":
-        return first_path + "" + second_path
