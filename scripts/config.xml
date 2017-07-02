@@ -17,10 +17,12 @@
         <repositories>
             <!--The repository of git setting-->
             <gits username="wybuguin@hotmail.com">
-                <password>12345</password>
+                <password>
+                    IapJddvWPm07qa6QqaAvMS7OTuBxNtLsbWlGHAfEesqUQ4Hs91mHD69Ch7M6xZxMH3+wBZnmrXZj\nuP2YEoaaiT4OSYhADKUmJGNNpDG/evoKNZGpcw0iq92rt1rffzJCy8W8+UOHz7oGXJ1jI6Os24fG\nu8jD9YfYPbRhQoZtDG4=\n
+                </password>
                 <!--The config for git. There can be mutil repository of git-->
                 <git id="1" username="wybuguin@hotmail.com">
-                    <password>12345</password>
+                    <password></password>
                     <!--This config is used for download code form git-->
                     <gitpath>
                         file:///D:/Users/buguin/SVN_REPOS/svn_test
@@ -43,9 +45,13 @@
             </gits>
             <!--The repository of svn setting-->
             <svns username="wybuguin@hotmail.com">
-                <password>12345</password>
+                <password>
+                    IapJddvWPm07qa6QqaAvMS7OTuBxNtLsbWlGHAfEesqUQ4Hs91mHD69Ch7M6xZxMH3+wBZnmrXZj\nuP2YEoaaiT4OSYhADKUmJGNNpDG/evoKNZGpcw0iq92rt1rffzJCy8W8+UOHz7oGXJ1jI6Os24fG\nu8jD9YfYPbRhQoZtDG4=\n
+                </password>
                 <svn id="1" username="wybuguin@hotmail.com">
-                    <password>12345</password>
+                    <password>
+                        IapJddvWPm07qa6QqaAvMS7OTuBxNtLsbWlGHAfEesqUQ4Hs91mHD69Ch7M6xZxMH3+wBZnmrXZj\nuP2YEoaaiT4OSYhADKUmJGNNpDG/evoKNZGpcw0iq92rt1rffzJCy8W8+UOHz7oGXJ1jI6Os24fG\nu8jD9YfYPbRhQoZtDG4=\n
+                    </password>
                     <!--This config is used for download code form git-->
                     <svnpath>
                         file:///D:/Users/buguin/SVN_REPOS/svn_test
@@ -55,7 +61,7 @@
                     </foldername>
                 </svn>
                 <svn id="2" username="wybuguin@hotmail.com">
-                    <password>12345111</password>
+                    <password></password>
                     <!--This config is used for download code form git-->
                     <svnpath>
                         file:///D:/Users/buguin/SVN_REPOS/svn_test
@@ -80,10 +86,12 @@
         <repositories>
             <!--The repository of git setting-->
             <gits username="wybuguin@hotmail.com">
-                <password>12345</password>
+                <password>
+                    IapJddvWPm07qa6QqaAvMS7OTuBxNtLsbWlGHAfEesqUQ4Hs91mHD69Ch7M6xZxMH3+wBZnmrXZj\nuP2YEoaaiT4OSYhADKUmJGNNpDG/evoKNZGpcw0iq92rt1rffzJCy8W8+UOHz7oGXJ1jI6Os24fG\nu8jD9YfYPbRhQoZtDG4=\n
+                </password>
                 <!--The config for git. There can be mutil repository of git-->
                 <git id="1" username="wybuguin@hotmail.com">
-                    <password>12345</password>
+                    <password></password>
                     <!--This config is used for download code form git-->
                     <gitpath>
                         https://github.com/Buguin/learngit.git
@@ -93,7 +101,9 @@
                     </foldername>
                 </git>
                 <git id="2" username="wybuguin@hotmail.com">
-                    <password>12345</password>
+                    <password>
+                        IapJddvWPm07qa6QqaAvMS7OTuBxNtLsbWlGHAfEesqUQ4Hs91mHD69Ch7M6xZxMH3+wBZnmrXZj\nuP2YEoaaiT4OSYhADKUmJGNNpDG/evoKNZGpcw0iq92rt1rffzJCy8W8+UOHz7oGXJ1jI6Os24fG\nu8jD9YfYPbRhQoZtDG4=\n
+                    </password>
                     <gitpath>
                         https://github.com/Buguin/game-of-life.git
                     </gitpath>
@@ -104,9 +114,11 @@
             </gits>
             <!--The repository of svn setting-->
             <svns username="wybuguin@hotmail.com">
-                <password>12345ssssssssssssssssssssssssssssssssssssssssssssssss</password>
+                <password></password>
                 <svn id="1" username="wybuguin@hotmail.com">
-                    <password>12345</password>
+                    <password>
+                        IapJddvWPm07qa6QqaAvMS7OTuBxNtLsbWlGHAfEesqUQ4Hs91mHD69Ch7M6xZxMH3+wBZnmrXZj\nuP2YEoaaiT4OSYhADKUmJGNNpDG/evoKNZGpcw0iq92rt1rffzJCy8W8+UOHz7oGXJ1jI6Os24fG\nu8jD9YfYPbRhQoZtDG4=\n
+                    </password>
                     <!--This config is used for download code form git-->
                     <svnpath>
                         file:///D:/Users/buguin/SVN_REPOS/svn_test
@@ -116,7 +128,9 @@
                     </foldername>
                 </svn>
                 <svn id="2" username="wybuguin@hotmail.com">
-                    <password>123455555</password>
+                    <password>
+                        IapJddvWPm07qa6QqaAvMS7OTuBxNtLsbWlGHAfEesqUQ4Hs91mHD69Ch7M6xZxMH3+wBZnmrXZj\nuP2YEoaaiT4OSYhADKUmJGNNpDG/evoKNZGpcw0iq92rt1rffzJCy8W8+UOHz7oGXJ1jI6Os24fG\nu8jD9YfYPbRhQoZtDG4=\n
+                    </password>
                     <!--This config is used for download code form git-->
                     <svnpath>
                         file:///D:/Users/buguin/SVN_REPOS/svn_test
