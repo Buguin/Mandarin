@@ -6,8 +6,9 @@ from collections import deque
 from toolkit.common.config_tools import ConfigClass
 from toolkit.common.config_tools import ExcludeToolClass
 from toolkit.gittools.git_tools import GitToolClass
+from toolkit.rsatools.rsa_tool_class import RSAToolClass
 from toolkit.svntools.svn_tools import SVNToolClass
-from toolkit.xmltools.comm_xml_tools import *
+from toolkit.xmltools.com_xml_tools import *
 
 
 def get_targetpath(collection):
@@ -40,16 +41,23 @@ def get_sourcepath(collection):
 
 def get_git_deque(xmlpath):
     git_deque = deque()
+    rsa_tool = RSAToolClass()
+    rsa_tool.initial()
     dom_tree = xml.dom.minidom.parse(xmlpath)
     collection = dom_tree.documentElement
     targetpath_tag = get_fist_tag(collection, "targetpath")
     gits_tag = get_fist_tag(targetpath_tag, "gits")
     com_username = gits_tag.getAttribute("username")
     com_passwd = get_childtag_data(gits_tag, "password")
+    com_passwd_1 = "IapJddvWPm07qa6QqaAvMS7OTuBxNtLsbWlGHAfEesqUQ4Hs91mHD69Ch7M6xZxMH3+wBZnmrXZj\nuP2YEoaaiT4OSYhADKUmJGNNpDG/evoKNZGpcw0iq92rt1rffzJCy8W8+UOHz7oGXJ1jI6Os24fG\nu8jD9YfYPbRhQoZtDG4=\n"
+    print(com_passwd == com_passwd_1)
+    com_passwd_bytes_utf8 = com_passwd.encode(encoding="utf-8")
+    com_passwd = rsa_tool.decrypt(com_passwd_bytes_utf8)
     # com_passwd = gits_tag.getAttribute("password")
     print(com_username, com_passwd)
     git_tags = gits_tag.getElementsByTagName("git")
     print(get_targetpath(collection))
+
     for git_tag in git_tags:
         git_tool = GitToolClass()
         git_tool.git_source_path = get_targetpath(collection)

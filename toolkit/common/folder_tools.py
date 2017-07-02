@@ -36,3 +36,12 @@ def get_folder_status(fodler_path):
     else:
         print("This size of repo is not existed")
         return 1
+
+
+def get_folder_path(fodler_name):
+    folder_path = os.getcwd()
+    path_list = folder_path.split('\\')
+    num = path_list.index(fodler_name)
+    path_list = path_list[:num + 1]
+    folder_path = '\\'.join(path_list)
+    return folder_path

@@ -25,8 +25,9 @@ def get_childtag_data(parent_tag, child_tag_name):
     if child_tag.firstChild is None:
         return ""
     else:
-        print(child_tag.firstChild.data.strip())
-        return child_tag.firstChild.data.strip()
+        tag_data = child_tag.firstChild.data.strip()
+        # fixme The txt data extracted directly from XML include the double escape character
+        return tag_data
 
 
 def path_connect(first_path, second_path):
