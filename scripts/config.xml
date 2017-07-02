@@ -21,7 +21,7 @@
                 <git id="1" username="wybuguin@hotmail.com" passwd="12345">
                     <!--This config is used for download code form git-->
                     <gitpath>
-                        https://github.com/Buguin/learngit.git
+                        file:///D:/Users/buguin/SVN_REPOS/svn_test
                     </gitpath>
                     <!--If foldername is empty, code will download to the folder which name the suffix of gitpath-->
                     <foldername>
@@ -29,7 +29,7 @@
                 </git>
                 <git id="2" username="" passwd="">
                     <gitpath>
-                        https://github.com/Buguin/game-of-life.git
+                        file:///D:/Users/buguin/SVN_REPOS/svn_test
                     </gitpath>
                     <foldername>
                         game
@@ -38,13 +38,23 @@
             </gits>
             <!--The repository of svn setting-->
             <svns username="wybuguin@hotmail.com" password="12345">
-                <svn id="" username="wybuguin@hotmail.com" password="12345">
+                <svn id="1" username="wybuguin@hotmail.com" password="12345">
                     <!--This config is used for download code form git-->
                     <svnpath>
-                        https://github.com/Buguin/learngit.git
+                        file:///D:/Users/buguin/SVN_REPOS/svn_test
                     </svnpath>
-                    <!--If foldername is empty, code will download to the folder which name the suffix of gitpath-->
+                    <!--If foldername is empty, code will download to the folder which name the suffix of svnpath-->
                     <foldername>
+                    </foldername>
+                </svn>
+                <svn id="2" username="wybuguin@hotmail.com" password="12345111">
+                    <!--This config is used for download code form git-->
+                    <svnpath>
+                        file:///D:/Users/buguin/SVN_REPOS/svn_test
+                    </svnpath>
+                    <!--If foldername is empty, code will download to the folder which name the suffix of svnpath-->
+                    <foldername>
+                        working
                     </foldername>
                 </svn>
             </svns>
@@ -82,14 +92,24 @@
                 </git>
             </gits>
             <!--The repository of svn setting-->
-            <svns username="wybuguin@hotmail.com" password="12345">
-                <svn id="" username="wybuguin@hotmail.com" password="12345">
+            <svns username="wybuguin@hotmail.com" password="12345ssssssssssssssssssssssssssssssssssssssssssssssss">
+                <svn id="1" username="wybuguin@hotmail.com" password="12345">
                     <!--This config is used for download code form git-->
                     <svnpath>
-                        https://github.com/Buguin/learngit.git
+                        file:///D:/Users/buguin/SVN_REPOS/svn_test
                     </svnpath>
                     <!--If foldername is empty, code will download to the folder which name the suffix of gitpath-->
                     <foldername>
+                    </foldername>
+                </svn>
+                <svn id="2" username="wybuguin@hotmail.com" password="123455555">
+                    <!--This config is used for download code form git-->
+                    <svnpath>
+                        file:///D:/Users/buguin/SVN_REPOS/svn_test
+                    </svnpath>
+                    <!--If foldername is empty, code will download to the folder which name the suffix of gitpath-->
+                    <foldername>
+                        working
                     </foldername>
                 </svn>
             </svns>
