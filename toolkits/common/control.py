@@ -3,7 +3,7 @@
 from toolkits.xmltools.read_xml_tools import *
 
 
-class Control:
+class Control(object):
     def __init__(self, configpath):
         # The deque for download sourcecode
         self.configpath = configpath
@@ -15,7 +15,7 @@ class Control:
     def run(self):
         # get deque of repository, include svn and git
         self.git_deque = get_git_deque(self.configpath)
-        # svn_deque = get_svn_deque(configpath)
+        self.svn_deque = get_svn_deque(self.configpath)
 
         # get code throgh git and svn tool
         """
@@ -24,6 +24,11 @@ class Control:
             print(git_tool)
             git_tool.initial()
         """
+
+        while self.svn_deque:
+            svn_tool = self.svn_deque.popleft()
+            print(svn_tool)
+            svn_tool.initial()
         # initial information of config
         compare_deque = get_config_deque(self.configpath)
         while compare_deque:
