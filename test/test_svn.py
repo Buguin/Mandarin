@@ -19,8 +19,8 @@ class MyTestCase(unittest.TestCase):
     def test_svn_tools(self):
         svntools = SVNToolClass()
         svntools.folder_name = "working"
-        svntools.username = ""
-        svntools.passwd = ""
+        svntools.user_name = ""
+        svntools.pass_word = ""
         svntools.repo_path = "file:///D:/Users/buguin/SVN_REPOS/svn_test"
         svntools.svn_source_path = "D:\Temp"
         result = svntools.initial()
