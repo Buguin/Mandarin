@@ -1,8 +1,8 @@
 import unittest
 
-import toolkits.svntools.local as lc
-import toolkits.svntools.remote as re
-from toolkits.svntools.svn_tools import SVNToolClass
+import toolkit.svntools.local as lc
+import toolkit.svntools.remote as re
+from toolkit.svntools.svn_tools import SVNToolClass
 
 
 class MyTestCase(unittest.TestCase):
