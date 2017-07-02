@@ -20,14 +20,14 @@ def get_folder_status(fodler_path):
     According to the param of dir_path, get the status of folder and return it.
     :param fodler_path: The path of folder, like D:\Temp
     :return: The status of folder:
-    parm0 : The folder which on user computer is not create
-    parm1 : The folder which on user computer is created, but is empty
-    parm2 : The folder which on user computer is created and not empty  
+    parm1 : The folder which on user computer is not create
+    parm2 : The folder which on user computer is created, but is empty (<30)
+    parm3 : The folder which on user computer is created and not empty  
     """
     if os.path.exists(fodler_path):
         print("This size of repo is existed")
-        print(float(os.path.getsize(fodler_path)))
-        if float(os.path.getsize(fodler_path)) < 50:
+        print(float(get_folder_size(fodler_path)))
+        if float(get_folder_size(fodler_path)) < 30:
             print("This size of repo is ", get_folder_size(fodler_path) / 1024 / 1024)
             return 2
         else:
