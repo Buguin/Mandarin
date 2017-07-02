@@ -17,6 +17,7 @@ class LocalClient(svn_common.CommonClient):
 
         cmd += [self.path]
         self.run_command('update', cmd)
+        return 0
 
     def __repr__(self):
         return '<SVN(LOCAL) %s>' % self.path
