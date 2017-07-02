@@ -6,6 +6,7 @@ from collections import deque
 from toolkits.common.config_tools import ConfigClass
 from toolkits.common.config_tools import ExcludeToolClass
 from toolkits.gittools.git_tools import GitToolClass
+from toolkits.svntools.svn_tools import SVNToolClass
 from toolkits.xmltools.comm_xml_tools import *
 
 
@@ -44,7 +45,8 @@ def get_git_deque(xmlpath):
     targetpath_tag = get_fist_tag(collection, "targetpath")
     gits_tag = get_fist_tag(targetpath_tag, "gits")
     com_username = gits_tag.getAttribute("username")
-    com_passwd = gits_tag.getAttribute("passwd")
+    # com_passwd = get_childtag_data(git_tag, "gitpath")
+    com_passwd = gits_tag.getAttribute("password")
     print(com_username, com_passwd)
     git_tags = gits_tag.getElementsByTagName("git")
     print(get_targetpath(collection))
@@ -56,12 +58,10 @@ def get_git_deque(xmlpath):
             git_tool.username = com_username
         else:
             git_tool.username = git_tag.getAttribute("username")
-        if git_tag.getAttribute("passwd") == "":
+        if git_tag.getAttribute("password") == "":
             git_tool.username = com_passwd
         else:
             git_tool.username = git_tag.getAttribute("passwd")
-        # git_tool.username = git_tag.getAttribute("username")
-        # git_tool.passwd = git_tag.getAttribute("passwd")
         print(get_childtag_data(git_tag, "foldername"))
         if get_childtag_data(git_tag, "foldername"):
             git_tool.folder_name = get_childtag_data(git_tag, "foldername")
@@ -79,15 +79,28 @@ def get_svn_deque(xmlpath):
     collection = dom_tree.documentElement
     svns = get_fist_tag(collection, "svns")
     com_username = svns.getAttribute("username")
-    com_passwd = svns.getAttribute("passwd")
+    com_passwd = svns.getAttribute("password")
     print(com_username, com_passwd)
     svn_tags = svns.getElementsByTagName("svn")
     print(get_targetpath(collection))
     for svn_tag in svn_tags:
-        svn_tool = GitToolClass()
-        svn_tool.git_source_path = get_childtag_data(svn_tag, "svnpath")
-        svn_tool.username = svn_tag.getAttribute("username")
-        svn_tool.passwd = svn_tag.getAttribute("passwd")
+        svn_tool = SVNToolClass()
+        svn_tool.svn_source_path = get_targetpath(collection)
+        svn_tool.repo_path = get_childtag_data(svn_tag, "svnpath")
+        if svn_tag.getAttribute("username") == "":
+            svn_tool.user_name = com_username
+        else:
+            svn_tool.user_name = svn_tag.getAttribute("username")
+        if svn_tag.getAttribute("password") == "":
+            svn_tool.pass_word = com_passwd
+        else:
+            svn_tool.pass_word = svn_tag.getAttribute("password")
+        print(get_childtag_data(svn_tag, "foldername"))
+        if get_childtag_data(svn_tag, "foldername"):
+            svn_tool.folder_name = get_childtag_data(svn_tag, "foldername")
+        else:
+            temp = svn_tool.repo_path.split('/')
+            svn_tool.folder_name = temp[len(temp) - 1]
         svn_deque.append(svn_tool)
     return svn_deque
 
