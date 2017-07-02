@@ -4,7 +4,7 @@ import os
 
 from lxml import etree as et
 
-from toolkits.common.md5_tools import get_file_md5
+from toolkit.common.md5_tools import get_file_md5
 
 
 def get_source_infor(compare_tool):

@@ -3,7 +3,7 @@ import logging
 import os
 import subprocess
 
-import toolkits.svntools.constants
+import toolkit.svntools.constants
 
 _logger = logging.getLogger('svn')
 
@@ -25,7 +25,7 @@ class CommonClient(object):
         self.__password = kwargs.pop('password', None)
         self.__env = kwargs.get('env', {})
 
-        if type_ not in (toolkits.svntools.constants.LT_RM, toolkits.svntools.constants.LT_LC):
+        if type_ not in (toolkit.svntools.constants.LT_RM, toolkit.svntools.constants.LT_LC):
             raise SvnException("Type is invalid: %s" % type_)
 
         self.__type = type_

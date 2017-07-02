@@ -1,7 +1,7 @@
 import os.path
 
-import toolkits.svntools.common as svn_common
-import toolkits.svntools.constants as svn_constants
+import toolkit.svntools.common as svn_common
+import toolkit.svntools.constants as svn_constants
 
 
 class LocalClient(svn_common.CommonClient):

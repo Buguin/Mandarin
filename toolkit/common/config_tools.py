@@ -1,6 +1,6 @@
 # -*- codeing:utf-8 -*-
 # __author__ = 'Buguin'
-from toolkits.xmltools.write_xml_tools import get_source_infor, get_tatget_infor, get_compare_result
+from toolkit.xmltools.write_xml_tools import get_source_infor, get_tatget_infor, get_compare_result
 
 
 class ConfigClass:

@@ -3,11 +3,11 @@
 import xml.dom.minidom
 from collections import deque
 
-from toolkits.common.config_tools import ConfigClass
-from toolkits.common.config_tools import ExcludeToolClass
-from toolkits.gittools.git_tools import GitToolClass
-from toolkits.svntools.svn_tools import SVNToolClass
-from toolkits.xmltools.comm_xml_tools import *
+from toolkit.common.config_tools import ConfigClass
+from toolkit.common.config_tools import ExcludeToolClass
+from toolkit.gittools.git_tools import GitToolClass
+from toolkit.svntools.svn_tools import SVNToolClass
+from toolkit.xmltools.comm_xml_tools import *
 
 
 def get_targetpath(collection):
@@ -45,8 +45,8 @@ def get_git_deque(xmlpath):
     targetpath_tag = get_fist_tag(collection, "targetpath")
     gits_tag = get_fist_tag(targetpath_tag, "gits")
     com_username = gits_tag.getAttribute("username")
-    # com_passwd = get_childtag_data(git_tag, "gitpath")
-    com_passwd = gits_tag.getAttribute("password")
+    com_passwd = get_childtag_data(gits_tag, "password")
+    # com_passwd = gits_tag.getAttribute("password")
     print(com_username, com_passwd)
     git_tags = gits_tag.getElementsByTagName("git")
     print(get_targetpath(collection))
@@ -55,13 +55,13 @@ def get_git_deque(xmlpath):
         git_tool.git_source_path = get_targetpath(collection)
         git_tool.repo_path = get_childtag_data(git_tag, "gitpath")
         if git_tag.getAttribute("username") == "":
-            git_tool.username = com_username
+            git_tool.user_name = com_username
         else:
-            git_tool.username = git_tag.getAttribute("username")
-        if git_tag.getAttribute("password") == "":
-            git_tool.username = com_passwd
+            git_tool.user_name = git_tag.getAttribute("username")
+        if get_childtag_data(git_tag, "password") == "":
+            git_tool.pass_word = com_passwd
         else:
-            git_tool.username = git_tag.getAttribute("passwd")
+            git_tool.pass_word = get_childtag_data(git_tag, "password")
         print(get_childtag_data(git_tag, "foldername"))
         if get_childtag_data(git_tag, "foldername"):
             git_tool.folder_name = get_childtag_data(git_tag, "foldername")
@@ -77,11 +77,12 @@ def get_svn_deque(xmlpath):
     svn_deque = deque()
     dom_tree = xml.dom.minidom.parse(xmlpath)
     collection = dom_tree.documentElement
-    svns = get_fist_tag(collection, "svns")
-    com_username = svns.getAttribute("username")
-    com_passwd = svns.getAttribute("password")
+    svns_tag = get_fist_tag(collection, "svns")
+    com_username = svns_tag.getAttribute("username")
+    com_passwd = get_childtag_data(svns_tag, "password")
+    # com_passwd = svns.getAttribute("password")
     print(com_username, com_passwd)
-    svn_tags = svns.getElementsByTagName("svn")
+    svn_tags = svns_tag.getElementsByTagName("svn")
     print(get_targetpath(collection))
     for svn_tag in svn_tags:
         svn_tool = SVNToolClass()
@@ -91,10 +92,10 @@ def get_svn_deque(xmlpath):
             svn_tool.user_name = com_username
         else:
             svn_tool.user_name = svn_tag.getAttribute("username")
-        if svn_tag.getAttribute("password") == "":
+        if get_childtag_data(svn_tag, "password") == "":
             svn_tool.pass_word = com_passwd
         else:
-            svn_tool.pass_word = svn_tag.getAttribute("password")
+            svn_tool.pass_word = get_childtag_data(svn_tag, "password")
         print(get_childtag_data(svn_tag, "foldername"))
         if get_childtag_data(svn_tag, "foldername"):
             svn_tool.folder_name = get_childtag_data(svn_tag, "foldername")

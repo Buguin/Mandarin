@@ -2,12 +2,13 @@
 # __author__ = 'Buguin'
 import time
 
-import toolkits.svntools.local as lc
-import toolkits.svntools.remote as re
-from toolkits.common.folder_tools import *
+import git
+from git import Repo
+
+from toolkit.common.folder_tools import *
 
 
-class SVNToolClass:
+class GitToolClass:
     def __init__(self):
         """
         
@@ -16,13 +17,13 @@ class SVNToolClass:
         self.folder_name = ""
         self.user_name = ""
         self.pass_word = ""
-        self.svn_tool_status = 0
-        self.svn_source_path = ""
+        self.git_tool_status = 0
+        self.git_source_path = ""
         self.swicher = ""
 
     def initial(self):
-        self.svn_source_path = self.svn_source_path + "\\" + self.folder_name
-        self.swicher = get_folder_status(self.svn_source_path)
+        self.git_source_path = self.git_source_path + "\\" + self.folder_name
+        self.swicher = get_folder_status(self.git_source_path)
         if self.repo_path == "" or self.folder_name == "":
             print("repo_path and folder_name is empty")
             return 1
@@ -35,17 +36,15 @@ class SVNToolClass:
     def initialize_1(self):
         # os.makedirs(self.git_source_path)
         try:
-            repo = re.RemoteClient(self.repo_path)
-            repo.checkout(self.svn_source_path)
-            # repo = git.Repo.clone_from(self.repo_path, self.git_source_path, branch='master')
+            repo = git.Repo.clone_from(self.repo_path, self.git_source_path, branch='master')
         except Exception as err:
             print(Exception, ":", err)
             return 101
-        print("initialize_1", repo.path)
+        print("initialize_1", repo.head)
         return 100
 
     def initialize_2(self):
-        cmd = r"rd /s /q " + self.svn_source_path + " & echo 0"
+        cmd = r"rd /s /q " + self.git_source_path + " & echo 0"
         os.popen(cmd, 'r', 1)
         # wait delet the file
         print("wait delet the file")
@@ -53,20 +52,18 @@ class SVNToolClass:
         time.sleep(5)
         # os.removedirs(self.git_source_path)
         try:
-            while not os.path.exists(self.svn_source_path):
-                repo = re.RemoteClient(self.repo_path)
-                repo.checkout(self.svn_source_path)
-                print("initialize_2", repo.path)
+            while not os.path.exists(self.git_source_path):
+                repo = git.Repo.clone_from(self.repo_path, self.git_source_path, branch='master')
+                print("initialize_1", repo.head)
         except Exception as err:
             print(Exception, ":", err)
             return 201
         return 200
 
     def initialize_3(self):
-        repo = lc.LocalClient(self.svn_source_path)
+        repo = Repo(self.git_source_path)
         try:
-            repo.update()
-            print("initialize_3", repo.path)
+            repo.remote().pull()
         except Exception as err:
             print(Exception, ":", err)
             return 301

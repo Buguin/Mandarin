@@ -1,6 +1,6 @@
 # -*- codeing:utf-8 -*-
 # __author__ = 'Buguin'
-from toolkits.xmltools.read_xml_tools import *
+from toolkit.xmltools.read_xml_tools import *
 
 
 class Control(object):
